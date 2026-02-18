@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GHL SideKick - Powerful Add-ons for GoHighLevel</title>
+    <meta name="description" content="Enhance your GoHighLevel experience with SideKick add-ons. ProSelect integration, Light Blue sync, and GoCardless payments.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --primary-dark: #4338CA;
+            --secondary: #10B981;
+            --dark: #1F2937;
+            --light: #F9FAFB;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--light);
+            color: var(--dark);
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 100px 0 80px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .hero .tagline {
+            font-size: 1.4rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        
+        .products {
+            padding: 80px 0;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px 30px;
+            height: 100%;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+            color: inherit;
+        }
+        
+        .product-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin-bottom: 24px;
+        }
+        
+        .product-ps .product-icon {
+            background: linear-gradient(135deg, #F59E0B, #D97706);
+            color: white;
+        }
+        
+        .product-lb .product-icon {
+            background: linear-gradient(135deg, #3B82F6, #2563EB);
+            color: white;
+        }
+        
+        .product-dd .product-icon {
+            background: linear-gradient(135deg, #10B981, #059669);
+            color: white;
+        }
+        
+        .product-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .product-card p {
+            color: #6B7280;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .product-card .features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 24px;
+        }
+        
+        .product-card .features li {
+            padding: 8px 0;
+            color: #4B5563;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .product-card .features li i {
+            color: var(--secondary);
+        }
+        
+        .btn-product {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        
+        .product-ps .btn-product {
+            background: #FEF3C7;
+            color: #D97706;
+        }
+        
+        .product-lb .btn-product {
+            background: #DBEAFE;
+            color: #2563EB;
+        }
+        
+        .product-dd .btn-product {
+            background: #D1FAE5;
+            color: #059669;
+        }
+        
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        footer a {
+            color: #9CA3AF;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero .tagline {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+       <div class="container">
+            <h1><i class="bi bi-lightning-charge-fill"></i> GHL SideKick</h1>
+            <p class="tagline">Powerful add-ons that supercharge your GoHighLevel workflow with seamless integrations</p>
+        </div>
+    </section>
+
+    <section class="products">
+        <div class="container">
+            <div class="row g-4">
+                <!-- SideKick PS -->
+                <div class="col-md-4">
+                    <a href="https://ps.ghl-sidekick.com" class="product-card product-ps">
+                        <div class="product-icon">
+                            <i class="bi bi-camera-fill"></i>
+                        </div>
+                        <h3>SideKick PS</h3>
+                        <p>Sync ProSelect photography orders directly to GHL contacts and pipelines.</p>
+                        <ul class="features">
+                            <li><i class="bi bi-check-circle-fill"></i> Auto-import orders</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Update contact notes</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Pipeline automation</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Custom field mapping</li>
+                        </ul>
+                        <span class="btn-product">
+                            Learn More <i class="bi bi-arrow-right"></i>
+                        </span>
+                    </a>
+                </div>
+
+                <!-- SideKick LB -->
+                <div class="col-md-4">
+                    <a href="https://lb.ghl-sidekick.com" class="product-card product-lb">
+                        <div class="product-icon">
+                            <i class="bi bi-calendar-check-fill"></i>
+                        </div>
+                        <h3>SideKick LB</h3>
+                        <p>Two-way sync between Light Blue and GHL for seamless studio management.</p>
+                        <ul class="features">
+                            <li><i class="bi bi-check-circle-fill"></i> Contact sync</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Booking integration</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Invoice updates</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Workflow triggers</li>
+                        </ul>
+                        <span class="btn-product">
+                            Learn More <i class="bi bi-arrow-right"></i>
+                        </span>
+                    </a>
+                </div>
+
+                <!-- SideKick DD -->
+                <div class="col-md-4">
+                    <a href="https://dd.ghl-sidekick.com" class="product-card product-dd">
+                        <div class="product-icon">
+                            <i class="bi bi-credit-card-fill"></i>
+                        </div>
+                        <h3>SideKick DD</h3>
+                        <p>Accept GoCardless Direct Debit payments through your GHL workflows.</p>
+                        <ul class="features">
+                            <li><i class="bi bi-check-circle-fill"></i> Direct Debit setup</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Recurring payments</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Payment tracking</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Webhook automation</li>
+                        </ul>
+                        <span class="btn-product">
+                            Learn More <i class="bi bi-arrow-right"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 GHL SideKick. All rights reserved.</p>
+            <p class="mt-2">
+                <a href="mailto:guy@zoom-photo.co.uk">guy@zoom-photo.co.uk</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
