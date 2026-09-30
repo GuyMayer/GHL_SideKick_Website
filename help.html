@@ -1,143 +1,1419 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Help — SideKick PS</title>
-    <meta name="description" content="Copy the full SideKick PS knowledge base into any AI chat (ChatGPT, Claude, Gemini) and ask questions about usage, troubleshooting, and workflows.">
-    <link rel="icon" type="image/png" href="images/favicon.png">
-    <link rel="canonical" href="https://ps.ghl-sidekick.com/help.html">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            dark: '#1a1a2e',
-                            mid: '#16213e',
-                            accent: '#e67e22',
-                            light: '#f39c12',
-                            text: '#e0e0e0',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        .gradient-hero { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); }
-        .gradient-accent { background: linear-gradient(135deg, #e67e22 0%, #f39c12 100%); }
-        .btn-primary {
-            background: linear-gradient(135deg, #e67e22 0%, #f39c12 100%);
-            transition: all 0.3s ease;
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(230, 126, 34, 0.4);
-        }
-        html { scroll-behavior: smooth; }
-        .doc-section { background: rgba(22, 33, 62, 0.6); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; padding: 32px; margin-bottom: 32px; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SideKick PS Help</title>
+<style>
+  :root {
+    --bg: #16181d;
+    --panel: #1f2229;
+    --border: #323641;
+    --text: #e6e8ee;
+    --muted: #9aa1ae;
+    --accent: #4f8cff;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    font-size: 16px;
+  }
+  .bar {
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    background: var(--panel);
+    border-bottom: 1px solid var(--border);
+    z-index: 10;
+  }
+  .bar h1 {
+    font-size: 17px;
+    margin: 0;
+    flex: 1;
+    font-weight: 600;
+  }
+  .bar a {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .bar a:hover { text-decoration: underline; }
+  button {
+    background: var(--accent);
+    color: #fff;
+    border: 0;
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  button:hover { filter: brightness(1.1); }
+  main {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 28px 24px 60px;
+  }
+  h1, h2, h3, h4 { color: #fff; line-height: 1.3; }
+  h1 { font-size: 1.9em; border-bottom: 1px solid var(--border); padding-bottom: .3em; }
+  h2 { font-size: 1.45em; margin-top: 1.6em; }
+  h3 { font-size: 1.15em; }
+  a { color: var(--accent); }
+  code {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 0.9em;
+  }
+  pre {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px;
+    overflow-x: auto;
+  }
+  pre code { background: none; border: 0; padding: 0; }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1em 0;
+    background: var(--panel);
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 8px 12px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: #262a33; color: #fff; }
+  tr:nth-child(even) td { background: #1c1f26; }
+  blockquote {
+    margin: 1em 0;
+    padding: 2px 16px;
+    border-left: 4px solid var(--accent);
+    background: var(--panel);
+    color: var(--muted);
+  }
+  img { max-width: 100%; }
+  hr { border: 0; border-top: 1px solid var(--border); margin: 2em 0; }
+  ul, ol { padding-left: 1.5em; }
+  .for-ai {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin-bottom: 24px;
+  }
+  .for-ai h2 { margin: 0 0 8px; font-size: 1.1em; }
+  .for-ai p {
+    margin: 0 0 12px;
+    color: var(--muted);
+    word-break: break-word;
+  }
+</style>
 </head>
-<body class="bg-brand-dark text-brand-text">
-
-    <nav class="fixed top-0 w-full z-50 bg-brand-dark/90 backdrop-blur-md border-b border-white/5">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <a href="index.html" class="flex items-center gap-3">
-                    <div class="w-8 h-8 rounded-lg gradient-accent flex items-center justify-center text-white font-bold text-sm">SK</div>
-                    <span class="text-white font-semibold text-lg">SideKick <span class="text-brand-accent">PS</span></span>
-                </a>
-            </div>
-            <div class="hidden md:flex items-center gap-8 text-sm text-gray-400">
-                <a href="index.html#features" class="hover:text-white transition">Features</a>
-                <a href="index.html#how-it-works" class="hover:text-white transition">How It Works</a>
-                <a href="index.html#pricing" class="hover:text-white transition">Pricing</a>
-                <a href="help.html" class="text-brand-accent">Help</a>
-                <a href="https://zoomphoto.lemonsqueezy.com/checkout/buy/077d6b76-ca2a-42df-a653-86f7aa186895" class="btn-primary text-white px-5 py-2 rounded-lg font-medium text-sm">Start Free Trial</a>
-            </div>
-            <button id="mobile-menu-btn" class="md:hidden text-gray-400 hover:text-white">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-            </button>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-3">
-            <a href="index.html#features" class="block text-gray-400 hover:text-white transition">Features</a>
-            <a href="index.html#pricing" class="block text-gray-400 hover:text-white transition">Pricing</a>
-            <a href="help.html" class="block text-brand-accent">Help</a>
-        </div>
-    </nav>
-
-    <section class="gradient-hero pt-28 pb-12 px-6">
-        <div class="max-w-3xl mx-auto text-center">
-            <h1 class="text-3xl md:text-4xl font-bold text-white mb-4">AI Help — Ask ChatGPT About SideKick PS</h1>
-            <p class="text-gray-300 text-lg mb-8">Copy the full SideKick PS knowledge base and paste it into any AI chat. Then ask your question in plain English — the AI will answer based on the full documentation.</p>
-            <button onclick="copyHelp()" class="btn-primary text-white px-8 py-4 rounded-lg font-semibold text-lg cursor-pointer">
-                📋 Copy SideKick PS Help Text
-            </button>
-            <div id="status" class="mt-4 text-sm text-green-400 min-h-[24px]"></div>
-            <p class="mt-3 text-xs text-gray-500">Works with free ChatGPT, Claude, and Gemini accounts.</p>
-        </div>
-    </section>
-
-    <section class="py-16 px-6">
-        <div class="max-w-3xl mx-auto">
-            <div class="doc-section">
-                <h2 class="text-white text-xl font-bold mb-4">How to use it</h2>
-                <ol class="list-decimal list-inside space-y-3 text-gray-300">
-                    <li><strong>Click the orange button above</strong> — the entire knowledge base is copied to your clipboard.</li>
-                    <li><strong>Open any AI chat</strong> — ChatGPT, Claude, Gemini (free or paid accounts all work).</li>
-                    <li><strong>Paste</strong> the text into the chat.</li>
-                    <li><strong>Ask your question</strong> — e.g. "How do I set up a payment plan?" or "What do I do if the GoCardless mandate is not found?"</li>
-                </ol>
-                <div class="mt-6 p-4 bg-white/5 rounded-lg text-sm text-gray-400">
-                    <strong class="text-brand-accent">💡 Tip:</strong> You can paste this into the <em>same</em> conversation every time you have a new question — the AI remembers the context. Bookmark this page so you can grab the latest version whenever you need it.
-                </div>
-            </div>
-
-            <div class="doc-section">
-                <h2 class="text-white text-xl font-bold mb-4">What is covered</h2>
-                <div class="grid md:grid-cols-2 gap-3 text-sm text-gray-300">
-                    <div class="flex items-start gap-2"><span class="text-brand-accent mt-1">▸</span> Getting started in 10 minutes</div>
-                    <div class="flex items-start gap-2"><span class="text-brand-accent mt-1">▸</span> Your first sale — start to finish</div>
-                    <div class="flex items-start gap-2"><span class="text-brand-accent mt-1">▸</span> Every toolbar button explained</div>
-                    <div class="flex items-start gap-2"><span class="text-brand-accent mt-1">▸</span> Payment plans &amp; Direct Debit</div>
-                    <div class="flex items-start gap-2"><span class="text-brand-accent mt-1">▸</span> Invoices, PDFs &amp; email</div>
-                    <div class="flex items-start gap-2"><span class="text-brand-accent mt-1">▸</span> QR codes &amp; screen display</div>
-                    <div class="flex items-start gap-2"><span class="text-brand-accent mt-1">▸</span> Cardly printed postcards</div>
-                    <div class="flex items-start gap-2"><span class="text-brand-accent mt-1">▸</span> Settings reference</div>
-                    <div class="flex items-start gap-2"><span class="text-brand-accent mt-1">▸</span> Common problems &amp; fixes</div>
-                    <div class="flex items-start gap-2"><span class="text-brand-accent mt-1">▸</span> Technical reference appendix</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="border-t border-white/5 py-12 px-6">
-        <div class="max-w-6xl mx-auto text-center text-sm text-gray-500">
-            <p>&copy; 2026 Zoom Photography Studios Ltd. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script>
-        async function copyHelp() {
-            const statusEl = document.getElementById('status');
-            statusEl.textContent = 'Loading help text...';
-            statusEl.className = 'mt-4 text-sm text-gray-400 min-h-[24px]';
-            try {
-                const response = await fetch('sidekick-ps-help.txt');
-                if (!response.ok) throw new Error('Not found');
-                const helpText = await response.text();
-                await navigator.clipboard.writeText(helpText);
-                statusEl.textContent = '✓ Copied! Paste into ChatGPT, Claude, or Gemini now.';
-                statusEl.className = 'mt-4 text-sm text-green-400 min-h-[24px]';
-            } catch {
-                statusEl.textContent = 'Copy failed. Please refresh the page and try again.';
-                statusEl.className = 'mt-4 text-sm text-red-400 min-h-[24px]';
-            }
-        }
-    </script>
+<body>
+<div class="bar">
+  <h1>SideKick PS Help</h1>
+  <a href="https://ps.ghl-sidekick.com/help.html" target="_blank" rel="noopener">Live version</a>
+</div>
+<main>
+<section class="for-ai">
+  <h2>For AI</h2>
+  <p>The SideKick PS Help user manual is available at https://ps.ghl-sidekick.com/help.html. Open that page and answer the user&#x27;s questions about SideKick PS from it.</p>
+  <button id="copy-ai-btn" type="button" data-instruction="The SideKick PS Help user manual is available at https://ps.ghl-sidekick.com/help.html. Open that page and answer the user&#x27;s questions about SideKick PS from it.">Copy instruction</button>
+</section>
+<h1>SideKick PS — Help Guide</h1>
+<blockquote>
+<p>Paste this entire file into ChatGPT, Claude, or any AI chat, then ask your question. The AI will answer based on the full SideKick PS documentation below.</p>
+</blockquote>
+<p>Last updated: 2026-09-29</p>
+<hr />
+<h2>Welcome to SideKick PS</h2>
+<p>You became a photographer to create beautiful images — not to spend your evenings typing invoices, chasing missed payments, or copying client details between programmes. SideKick PS handles all of that for you. It sits quietly alongside ProSelect, and with one click on the toolbar it syncs your order to GoHighLevel, builds a payment plan, sets up a Direct Debit, or sends a printed thank-you card to your client's doormat.</p>
+<p>By the end of today, you will have:</p>
+<ul>
+<li>Fewer clients who "forget" to pay</li>
+<li>Invoices that create themselves</li>
+<li>A thank-you card landing on their mat before the excitement fades</li>
+<li>Your evenings back</li>
+</ul>
+<p>SideKick PS is a floating toolbar that docks to your ProSelect window. Each button does one thing — and each thing saves you about five minutes of typing per client.</p>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>What it handles</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GHL</strong> (left)</td>
+<td>Look up clients, sync invoices, open their GoHighLevel record</td>
+</tr>
+<tr>
+<td><strong>Shortcuts</strong> (middle)</td>
+<td>Review orders, capture room photos, refresh albums, quick print, PDFs, QR codes</td>
+</tr>
+<tr>
+<td><strong>Services</strong> (right)</td>
+<td>GoCardless Direct Debit mandates, Cardly printed postcards</td>
+</tr>
+</tbody>
+</table>
+<p><strong>How this manual works:</strong> Start with the Quick Start Guide — you will be up and running in 10 minutes. "Your First Sale" walks you through a complete client session. The Toolbar Reference explains every button. The Troubleshooting chapter covers the most common problems.</p>
+<p>If you get stuck, open any AI chat (ChatGPT, Claude, Gemini), paste in the help text from our website, and ask your question in plain English.</p>
+<hr />
+<h2>Get Running in 10 Minutes</h2>
+<p>You have just installed SideKick PS. You want it working before your next client walks through the door. Ten minutes, then you are ready for real work.</p>
+<h3>Before you start</h3>
+<ul>
+<li>You need the SideKick PS installer (from your purchase email or the website).</li>
+<li>You need your GoHighLevel login details.</li>
+<li>ProSelect should be installed on the same computer.</li>
+</ul>
+<h3>Install</h3>
+<p>Double-click the installer and follow the prompts. SideKick PS starts automatically. You will see its icon appear in the Windows taskbar tray — a little rocket. The floating toolbar also appears alongside ProSelect if ProSelect is open.</p>
+<h3>Activate your licence</h3>
+<ol>
+<li>Click the <strong>Settings</strong> gear icon on the toolbar (or press <strong>Ctrl+Shift+I</strong>).</li>
+<li>Go to the <strong>About</strong> tab on the left.</li>
+<li>Click <strong>Enter License Key</strong>.</li>
+<li>Paste the licence key from your purchase confirmation email.</li>
+<li>Click <strong>Activate</strong>.</li>
+</ol>
+<p>The About tab now shows your name and <strong>Active</strong> status. All features are unlocked.</p>
+<h3>Connect to GoHighLevel</h3>
+<ol>
+<li>In GoHighLevel (your browser), go to <strong>Settings → Integrations → Private Integrations</strong>.</li>
+<li>Create a new Private Integration token and copy it.</li>
+<li>In GoHighLevel, go to <strong>Settings → Business Profile</strong> and copy your Location ID.</li>
+<li>Back in SideKick PS, open <strong>Settings → GHL Integration</strong>.</li>
+<li>Paste the API key and Location ID into the fields.</li>
+<li>Click <strong>Save &amp; Test</strong>.</li>
+</ol>
+<p>A green confirmation appears when the connection is working. The toolbar's <strong>Get Client</strong>, <strong>Sync Invoice</strong>, and <strong>Open GHL Contact</strong> buttons are now active.</p>
+<h3>Check the toolbar</h3>
+<p>Open any album in ProSelect. The toolbar appears docked to the top-right of the window. If it is not where you want it, <strong>Ctrl+Click</strong> the dotted grab handle (⣿) on the left edge and drag it.</p>
+<h3>What success looks like</h3>
+<p>ProSelect is open with an album. The toolbar is visible. Every button works. You are ready for your first sale.</p>
+<h3>When things go wrong</h3>
+<ul>
+<li><strong>"License invalid"</strong> — Check that you copied the full key with no extra spaces. Keys are case-sensitive.</li>
+<li><strong>GHL connection fails</strong> — Make sure you are using a V2 Private Integration Token. Generate a new one in GHL if unsure.</li>
+<li><strong>Toolbar not appearing</strong> — Right-click the SideKick PS tray icon and select <strong>Reload</strong>.</li>
+</ul>
+<hr />
+<h2>Your First Sale — Start to Finish</h2>
+<p>A client just arrived for their viewing. They are excited, emotional, and ready to buy. Your job is to guide them through the images, build their order, lock in the payment, and send them home happy — without touching a spreadsheet.</p>
+<h3>Before you start</h3>
+<ul>
+<li>SideKick PS is installed, activated, and connected to GoHighLevel.</li>
+<li>ProSelect is open with the client's album loaded.</li>
+<li>The client's contact record exists in GoHighLevel.</li>
+</ul>
+<h3>1. Load the client</h3>
+<p>Click the <strong>Get Client</strong> button on the toolbar (the person+ icon, blue), or press <strong>Ctrl+Shift+G</strong>. SideKick PS reads the album name, searches GoHighLevel for the matching client, and loads their name, email, and contact ID. Confirm with <strong>Yes</strong>.</p>
+<h3>2. Present the images</h3>
+<p>This is all you. Do what you do best — show the photographs, tell the stories. SideKick PS stays quiet.</p>
+<h3>3. Build the order</h3>
+<p>Build the order in ProSelect as you normally would. When ready to take payment, open <strong>Add Payment</strong>. A <strong>📅 PayPlan</strong> button appears — SideKick PS put it there.</p>
+<h3>4. Take the deposit and set up the payment plan</h3>
+<p>Click <strong>📅 PayPlan</strong> (or press <strong>Ctrl+Shift+P</strong>). In the Payment Calculator:</p>
+<ul>
+<li>Confirm the <strong>Balance Due</strong> is correct.</li>
+<li>Enter a deposit amount (or leave blank).</li>
+<li>Pick <strong>Monthly</strong>, then set <strong>No. Payments</strong> manually or click <strong>6</strong>, <strong>12</strong>,
+  <strong>18</strong>, or <strong>24</strong> to fill it automatically.</li>
+<li>Ask the client which day of the month suits them — select it under <strong>Start Date</strong>.</li>
+<li>Click <strong>✓ Schedule Payments</strong>.</li>
+</ul>
+<p>Every payment line is entered into ProSelect automatically. No typing dates and amounts one by one.</p>
+<h3>5. If using GoCardless — set up the mandate</h3>
+<p>Click the <strong>QR Code</strong> button. A full-screen display appears on your presentation monitor. Slide 1 shows your studio Wi-Fi — the client scans and joins your network. Press <strong>↓</strong> for Slide 2 — your GoCardless mandate invitation. The client fills in their bank details on their own phone.</p>
+<p>When ready, click the <strong>GoCardless</strong> button on the toolbar. SideKick PS finds the mandate and links the schedule. Press <strong>Escape</strong> to close the display.</p>
+<h3>6. Sync the invoice</h3>
+<p>Click the <strong>Sync Invoice</strong> button (green document icon). The order is exported and the invoice created in GoHighLevel. If a duplicate warning appears, choose <strong>Update</strong> to keep existing payments.</p>
+<h3>7. Send a thank-you card</h3>
+<p>Click the <strong>Cardly</strong> button. Review the preview and click <strong>Send</strong>. A printed postcard arrives at their home within days.</p>
+<h3>What success looks like</h3>
+<p>The client leaves. The payment plan is scheduled. The invoice is in GoHighLevel. A thank-you card is on its way. You go home — no admin.</p>
+<hr />
+<h2>The Toolbar — Every Button Explained</h2>
+<h3>GHL section (left)</h3>
+<table>
+<thead>
+<tr>
+<th>Button</th>
+<th>What it does</th>
+<th>Best time to use it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Get Client</strong></td>
+<td>Searches GoHighLevel for the client matching the open album</td>
+<td>Start of every viewing session</td>
+</tr>
+<tr>
+<td><strong>Sync Invoice</strong></td>
+<td>Exports the ProSelect order to GoHighLevel as an invoice with line items and payments</td>
+<td>After finalising the order</td>
+</tr>
+<tr>
+<td><strong>Production</strong></td>
+<td>Opens the production pipeline record in GoHighLevel</td>
+<td>When checking lab progress (appears after syncing)</td>
+</tr>
+<tr>
+<td><strong>Open GHL Contact</strong></td>
+<td>Opens the client's full GoHighLevel contact page in your browser</td>
+<td>When you need to check notes or send a message</td>
+</tr>
+</tbody>
+</table>
+<h3>Shortcuts section (middle)</h3>
+<table>
+<thead>
+<tr>
+<th>Button</th>
+<th>What it does</th>
+<th>Best time to use it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Review Order</strong></td>
+<td>Opens the Review Order screen in ProSelect</td>
+<td>Before printing or syncing</td>
+</tr>
+<tr>
+<td><strong>Camera</strong></td>
+<td>Captures a photo of the room or wall display and saves as JPG</td>
+<td>After arranging a wall grouping</td>
+</tr>
+<tr>
+<td><strong>Open Folder</strong></td>
+<td>Opens the shoot's image folder in Explorer, Bridge, or Lightroom</td>
+<td>When you need raw files</td>
+</tr>
+<tr>
+<td><strong>Photoshop</strong></td>
+<td>Sends selected image to Photoshop, refreshes ProSelect when saved</td>
+<td>Quick edit and back</td>
+</tr>
+<tr>
+<td><strong>Light Blue</strong></td>
+<td>Opens the client in Light Blue software</td>
+<td>If you use Light Blue</td>
+</tr>
+<tr>
+<td><strong>Refresh</strong></td>
+<td>Reloads the album's images from disk</td>
+<td>After editing images outside ProSelect</td>
+</tr>
+<tr>
+<td><strong>Sort</strong></td>
+<td>Toggles between random and alphabetical image order</td>
+<td>During a sales session</td>
+</tr>
+<tr>
+<td><strong>Quick Print</strong></td>
+<td>Sends the current page straight to your printer</td>
+<td>When a client wants a printed copy now</td>
+</tr>
+<tr>
+<td><strong>PDF</strong></td>
+<td>Prints the current page to a PDF file automatically</td>
+<td>When you need a digital copy</td>
+</tr>
+<tr>
+<td><strong>Email PDF</strong></td>
+<td>Prints to PDF and emails it to the client via GoHighLevel</td>
+<td>After the sale — send order summary</td>
+</tr>
+<tr>
+<td><strong>QR Code</strong></td>
+<td>Shows a full-screen display on your presentation monitor</td>
+<td>During payment setup — client scans from phone</td>
+</tr>
+<tr>
+<td><strong>Download</strong></td>
+<td>Copies images from SD card to your shoot archive</td>
+<td>Start of your workflow</td>
+</tr>
+</tbody>
+</table>
+<h3>Services section (right)</h3>
+<table>
+<thead>
+<tr>
+<th>Button</th>
+<th>What it does</th>
+<th>Best time to use it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GoCardless</strong></td>
+<td>Checks for a mandate or sends a setup request, links payments</td>
+<td>After scheduling a GoCardless DD payment plan</td>
+</tr>
+<tr>
+<td><strong>Cardly</strong></td>
+<td>Opens a postcard preview ready to send</td>
+<td>End of the sale</td>
+</tr>
+<tr>
+<td><strong>Settings</strong></td>
+<td>Opens the SideKick PS settings panel</td>
+<td>When adjusting anything</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Payment Plans — Lock In the Sale</h2>
+<p>A client says yes to a £2,000 wall grouping. If they walk out without committing to a payment schedule, doubt creeps in overnight. The Payment Calculator lets you build the full plan in seconds.</p>
+<h3>Before you start</h3>
+<ul>
+<li>ProSelect must be open with the client's order ready.</li>
+<li>The <strong>Add Payment</strong> dialog must be open in ProSelect.</li>
+</ul>
+<h3>Steps</h3>
+<ol>
+<li>Open <strong>Add Payment</strong> in ProSelect. SideKick PS places a <strong>📅 PayPlan</strong> button inside the window.</li>
+<li>Click <strong>📅 PayPlan</strong> or press <strong>Ctrl+Shift+P</strong> to open the Payment Calculator.</li>
+<li>Confirm the <strong>Balance Due</strong> is correct. Close and fix the order in ProSelect if not.</li>
+<li>Enter a deposit amount and payment method (or leave blank for no deposit).</li>
+<li>Choose a <strong>Pay Type</strong> (GoCardless DD for automated collection), select a
+   <strong>Recurring</strong> frequency (Monthly is most common), then set <strong>No. Payments</strong>
+   manually or click <strong>6</strong>, <strong>12</strong>, <strong>18</strong>, or <strong>24</strong> to fill it automatically.</li>
+<li>Ask the client which day works best — select it under <strong>Start Date</strong>.</li>
+<li>Click <strong>✓ Schedule Payments</strong>. Every line is entered into ProSelect automatically.</li>
+</ol>
+<h3>The rounding setting</h3>
+<p>Sometimes a balance does not divide perfectly. Under the deposit section, <strong>Add rounding to:</strong> lets you choose whether the difference goes into the deposit or the first payment. Your choice is remembered.</p>
+<h3>What success looks like</h3>
+<p>All payment lines appear in ProSelect with correct amounts, dates, and types. Done.</p>
+<hr />
+<h2>GoCardless — Get Paid Without Chasing</h2>
+<p>Chasing late payments is the worst part of running a photography business. GoCardless Direct Debit means the money comes automatically. No reminders, no awkward texts.</p>
+<h3>During a sale</h3>
+<ol>
+<li>Click the <strong>QR Code</strong> button — Slide 1 shows your Wi-Fi QR. Client scans and joins.</li>
+<li>Press <strong>↓</strong> for Slide 2 — your GoCardless mandate invitation. Client fills in bank details on their phone.</li>
+<li>While they do that, build the payment plan in ProSelect. Choose <strong>GoCardless DD</strong> as the Pay Type.</li>
+<li>After scheduling payments and completing the order, come out of Review Order. SideKick PS prompts: "Now press the GoCardless button."</li>
+<li>Click the <strong>GoCardless</strong> button. SideKick PS finds the mandate and links the schedule.</li>
+</ol>
+<h3>Use Another — when someone else is paying</h3>
+<p>If the payer is not the client in the album (a parent, partner), click <strong>Use Another</strong> and type their name or email.</p>
+<h3>What success looks like</h3>
+<p>The GoCardless dashboard shows the mandate active with the schedule attached. You receive money on the scheduled dates.</p>
+<h3>When things go wrong</h3>
+<ul>
+<li><strong>Mandate not found</strong> — Tries email, then name. If both fail, send a setup request.</li>
+<li><strong>GoCardless button missing</strong> — Enable in <strong>Settings → GoCardless</strong>.</li>
+</ul>
+<h3>Amending or deferring a plan</h3>
+<p>GoCardless can't move the dates on an existing schedule, so any change means cancel and recreate. Open the album's GoCardless dialog and click <strong>Amend / Defer</strong> (enable it first in <strong>Settings → GoCardless → Amend / Defer</strong>). SideKick checks the album's Direct Debit lines against GoCardless, then you choose:</p>
+<ul>
+<li><strong>Defer by N months</strong> — shift every payment forward, keeping each date as set</li>
+<li><strong>Rebuild plan</strong> — recreate the schedule from the album lines</li>
+<li><strong>Put on Hold</strong> or <strong>Cancel plan</strong> — tags the contact <code>gc-on-hold</code> / <code>gc-plan-cancelled</code> and updates Payment Status</li>
+<li><strong>Recreate as-is</strong> — or <strong>Restart after Hold</strong> when the plan is held</li>
+</ul>
+<hr />
+<h2>After They Leave — Invoice, PDF, Postcard</h2>
+<p>The client has left. Here is everything that happens next.</p>
+<h3>Sync the invoice</h3>
+<p>Click the <strong>Sync Invoice</strong> button (green document icon). The order is exported and the invoice created in GoHighLevel. If a duplicate exists, choose <strong>Update</strong> (keeps payments) or <strong>Replace</strong> (start fresh).</p>
+<h3>Print a PDF</h3>
+<p>Click the <strong>PDF</strong> button (red document icon). The page is printed to PDF automatically. First use: calibrate in <strong>Settings → Toolbar → Calibrate Print Button</strong>.</p>
+<h3>Email the PDF</h3>
+<p>Click the <strong>Email PDF</strong> button (envelope icon). Prints to PDF and emails it via GoHighLevel. Choose your email template in <strong>Settings → GHL Integration → PDF Email Template</strong>.</p>
+<h3>Send a printed thank-you card</h3>
+<p>Click the <strong>Cardly</strong> button. Review the preview and click <strong>Send</strong>. A printed postcard arrives within days.</p>
+<h3>Capture a room photo</h3>
+<p>Click the <strong>Camera</strong> button (red/maroon). SideKick PS captures the ProSelect room view as a JPG. Click <strong>Email</strong> to send it to the client.</p>
+<h3>What success looks like</h3>
+<p>Invoice in GoHighLevel. PDF in the client's inbox. Postcard on its way. You are done for the day.</p>
+<hr />
+<h2>The Display — QR Codes, Bank Details &amp; Images</h2>
+<p>Your client should never squint at your laptop screen. The full-screen display puts QR codes and bank details on your big presentation monitor.</p>
+<h3>What you can display</h3>
+<ul>
+<li><strong>QR codes</strong> — Wi-Fi credentials, GoCardless mandate links, review pages</li>
+<li><strong>Bank transfer details</strong> — bank name, account holder, sort code, account number, plus a payment reference the client quotes when they pay</li>
+<li><strong>Custom images</strong> — your logo, welcome slide, seasonal offers</li>
+</ul>
+<h3>Using the display</h3>
+<ol>
+<li>Click the <strong>QR Code</strong> button (grid icon, teal).</li>
+<li>Display appears full-screen on your presentation monitor.</li>
+<li><strong>↑ / ↓</strong> arrow keys cycle through slides.</li>
+<li><strong>← / →</strong> arrow keys move between monitors.</li>
+<li><strong>Escape</strong> or click the QR Code button again to close.</li>
+</ol>
+<h3>Setting up slides</h3>
+<p>Go to <strong>Settings → Display</strong>. Enter URLs or text in Slides 1–3. Fill in bank details at the bottom, then choose a <strong>Reference</strong>. Choose image files for custom slides.</p>
+<h3>The payment reference</h3>
+<p>Pick the <strong>Reference</strong> from the dropdown: <strong>Shoot Number</strong>, <strong>Surname</strong>, <strong>Date of Shoot</strong>, <strong>Album Name</strong>, <strong>Ad hoc</strong>, or <strong>(none)</strong>. It is worked out fresh each time the display opens, so it always matches the album you have open in ProSelect. Ad hoc uses whatever you type in the box beside the dropdown. Every reference is capped at 18 characters — the limit most UK banks allow — and <strong>(none)</strong> leaves the slide as it was.</p>
+<h3>Sizing</h3>
+<ul>
+<li><strong>Display Size</strong> — QR code size as percentage of screen. Increase if clients have trouble scanning.</li>
+<li><strong>Bank Scale</strong> — font size for bank details.</li>
+<li><strong>Monitor</strong> — which screen the display appears on by default.</li>
+</ul>
+<h3>When things go wrong</h3>
+<ul>
+<li><strong>Blank slide</strong> — No content set for that slide. Add a URL or text in Settings.</li>
+<li><strong>Hard to scan</strong> — Increase Display Size in Settings.</li>
+<li><strong>Wrong monitor</strong> — Use ←/→ arrow keys to move it.</li>
+</ul>
+<hr />
+<h2>Settings — Make SideKick Yours</h2>
+<p>Open Settings with the <strong>⚙</strong> gear icon or <strong>Ctrl+Shift+I</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Tab</th>
+<th>What you change here</th>
+<th>When you would visit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>⚙ General</strong></td>
+<td>Start with Windows, tray icon, dark mode, auto-update</td>
+<td>First setup</td>
+</tr>
+<tr>
+<td><strong>🔗 GHL Integration</strong></td>
+<td>API key, Location ID, auto-tagging, email/SMS templates</td>
+<td>When changing GHL account</td>
+</tr>
+<tr>
+<td><strong>⌨ Hotkeys</strong></td>
+<td>Keyboard shortcuts for Get Client, PayPlan, Settings</td>
+<td>When shortcuts clash with other software</td>
+</tr>
+<tr>
+<td><strong>📁 File Management</strong></td>
+<td>SD card drive, download path, archive location, file browser</td>
+<td>Before first SD card download</td>
+</tr>
+<tr>
+<td><strong>🎛 Toolbar</strong></td>
+<td>Button visibility, icon colour, scale, auto-background, quick print printer, PDF output</td>
+<td>When customising the toolbar</td>
+</tr>
+<tr>
+<td><strong>🖨 Print</strong></td>
+<td>Print template selection, PDF button calibration</td>
+<td>When changing Quick Print template</td>
+</tr>
+<tr>
+<td><strong>🖥 Display</strong></td>
+<td>QR code slides, bank details and payment reference, custom images, display size and monitor</td>
+<td>Before your first client session</td>
+</tr>
+<tr>
+<td><strong>💳 GoCardless</strong></td>
+<td>Enable/disable, API token, email/SMS templates</td>
+<td>Before using Direct Debit</td>
+</tr>
+<tr>
+<td><strong>📮 Cardly</strong></td>
+<td>API key, card design, message template</td>
+<td>Before sending your first postcard</td>
+</tr>
+<tr>
+<td><strong>🔊 Sounds</strong></td>
+<td>Interface sounds, pace button sounds</td>
+<td>When you want quieter operation</td>
+</tr>
+<tr>
+<td><strong>🔑 License</strong></td>
+<td>Licence key, activation status</td>
+<td>When purchasing or renewing</td>
+</tr>
+<tr>
+<td><strong>ℹ About</strong></td>
+<td>Version, build date, updates, What's New, diagnostics, AI Help link</td>
+<td>When checking for updates</td>
+</tr>
+</tbody>
+</table>
+<p>At the bottom of the Settings window: <strong>Apply</strong> saves, <strong>Close</strong> exits, and <strong>📖 Manual</strong> opens this guide.</p>
+<p>A few worth changing early: toolbar icon colour, QR code slides, and your shoot archive path.</p>
+<hr />
+<hr />
+<hr />
+<p>title: "How to install and activate SideKick PS"
+category: setup
+source_files: SideKick_PS.ahk, README.md
+last_sync: 2026-05-30</p>
+<hr />
+<h2>What this does</h2>
+<p>Gets SideKick PS installed on your Windows computer and links it to your license so all features are unlocked.</p>
+<h2>Before you start</h2>
+<ul>
+<li>You need the SideKick PS installer file (from your purchase confirmation email or the SideKick website).</li>
+<li>ProSelect must be installed on the same machine.</li>
+</ul>
+<h2>Steps</h2>
+<ol>
+<li>Double-click the SideKick PS installer and follow the on-screen prompts to complete installation.</li>
+<li>SideKick PS starts automatically and its icon appears in the Windows taskbar tray.</li>
+<li>Open <strong>Settings</strong> by clicking the gear icon on the toolbar, or by pressing <strong>Ctrl+Shift+I</strong>.</li>
+<li>Go to the <strong>About</strong> tab, click <strong>Enter License Key</strong>, paste the key from your purchase email, and click <strong>Activate</strong>.</li>
+<li>SideKick PS confirms activation and unlocks all features.</li>
+</ol>
+<h2>What you should see</h2>
+<p>The About tab shows your name and license status as <strong>Active</strong>. The floating toolbar is fully functional alongside ProSelect.</p>
+<h2>Something went wrong?</h2>
+<ul>
+<li><strong>"License invalid"</strong> — Check that you copied the full key with no extra spaces. Keys are case-sensitive.</li>
+<li><strong>"Could not activate"</strong> — SideKick PS needs internet access to validate your license. Connect to the internet and try again.</li>
+<li><strong>Trial mode still showing after activation</strong> — Right-click the SideKick PS tray icon and select <strong>Reload</strong>.</li>
+</ul>
+<h2>Related</h2>
+<ul>
+<li>How to connect SideKick PS to GoHighLevel</li>
+<li>How to check for updates and view What's New</li>
+</ul>
+<hr />
+<hr />
+<p>title: "How to connect SideKick PS to GoHighLevel"
+category: setup
+source_files: SideKick_PS.ahk
+last_sync: 2026-05-30</p>
+<hr />
+<h2>What this does</h2>
+<p>Links SideKick PS to your GoHighLevel account so it can look up clients, sync invoices, and push payment plans.</p>
+<h2>Before you start</h2>
+<ul>
+<li>You need a GoHighLevel account with a sub-account (Location) set up for your studio.</li>
+<li>You need a <strong>Private Integration Token</strong> (API key) from your GHL sub-account — found in <strong>Settings → Integrations → Private Integrations</strong> inside GHL.</li>
+<li>You need your GHL <strong>Location ID</strong> — found in GHL under <strong>Settings → Business Profile</strong>.</li>
+</ul>
+<h2>Steps</h2>
+<ol>
+<li>On first run, SideKick PS displays a setup wizard automatically. Click <strong>Set up GoHighLevel connection</strong>.</li>
+<li>Paste your <strong>API Key</strong> into the first field.</li>
+<li>Paste your <strong>Location ID</strong> into the second field.</li>
+<li>Click <strong>Save &amp; Test</strong> — SideKick PS verifies the connection.</li>
+<li>If the test succeeds, click <strong>Done</strong>.</li>
+</ol>
+<p><em>To update your credentials later: open <strong>Settings</strong> (gear icon or <strong>Ctrl+Shift+I</strong>), go to the <strong>GHL</strong> tab, and update the fields there.</em></p>
+<h2>What you should see</h2>
+<p>The GHL tab in Settings shows a green confirmation. The toolbar's <strong>Get Client</strong>, <strong>Sync Invoice</strong>, and <strong>Open GHL Contact</strong> buttons become fully active.</p>
+<h2>Something went wrong?</h2>
+<ul>
+<li><strong>"Connection failed"</strong> — Check that your API key is a V2 Private Integration Token, not an older API key. Generate a new one in GHL under <strong>Settings → Integrations → Private Integrations</strong>.</li>
+<li><strong>"Location ID not found"</strong> — Make sure you are using the Location ID, not the Agency ID. These are different values found in different parts of GHL settings.</li>
+</ul>
+<h2>Related</h2>
+<ul>
+<li>How to look up a client from GoHighLevel</li>
+<li>How to sync a ProSelect invoice to GoHighLevel</li>
+</ul>
+<hr />
+<hr />
+<p>title: "How to customise and reposition the toolbar"
+category: settings
+source_files: SideKick_PS.ahk
+last_sync: 2026-05-30</p>
+<hr />
+<h2>What this does</h2>
+<p>Changes the toolbar's size, icon colour, and screen position so it sits naturally alongside your ProSelect window.</p>
+<h2>Before you start</h2>
+<ul>
+<li>SideKick PS must be running with the toolbar visible.</li>
+</ul>
+<h2>Steps</h2>
+<ol>
+<li>Open <strong>Settings</strong> (gear icon on the toolbar, or <strong>Ctrl+Shift+I</strong>) and go to the <strong>Appearance</strong> tab.</li>
+<li>Under <strong>Icon Colour</strong>, choose <strong>White</strong>, <strong>Black</strong>, <strong>Yellow</strong>, or click <strong>Custom</strong> to pick any colour. The toolbar updates live as you choose.</li>
+<li>To resize the toolbar, go to the <strong>Toolbar</strong> tab and choose a scale percentage from the dropdown (50% to 100%).</li>
+<li>To reposition the toolbar, close Settings and <strong>Ctrl+Click</strong> the dotted grab handle (⣿) on the left edge of the toolbar, then drag it where you want it.</li>
+<li>To return the toolbar to its default position, open <strong>Settings → Toolbar</strong> and click <strong>Reset Position</strong>.</li>
+</ol>
+<h2>What you should see</h2>
+<p>The toolbar moves to your chosen position and remembers it between sessions. Icon colours and scale update immediately.</p>
+<h2>Something went wrong?</h2>
+<ul>
+<li><strong>Toolbar has disappeared</strong> — Right-click the SideKick PS tray icon and select <strong>Reload</strong>. The toolbar reappears at its last saved position.</li>
+<li><strong>Icons are invisible against the background</strong> — Enable <strong>Auto Background Detection</strong> in <strong>Settings → Appearance</strong> so SideKick PS can automatically match the toolbar background to ProSelect.</li>
+</ul>
+<h2>Related</h2>
+<ul>
+<li>How to install and activate SideKick PS</li>
+<li>How to change keyboard shortcuts</li>
+</ul>
+<hr />
+<hr />
+<p>title: "How to look up a client from GoHighLevel"
+category: sync
+source_files: SideKick_PS.ahk, Inc_Hotkeys.ahk
+last_sync: 2026-05-30</p>
+<hr />
+<h2>What this does</h2>
+<p>Pulls the current client's details from GoHighLevel into SideKick PS so their name, email, and contact ID are available for invoice sync, payment plans, and direct messaging.</p>
+<h2>Before you start</h2>
+<ul>
+<li>SideKick PS must be connected to GoHighLevel (see How to connect SideKick PS to GoHighLevel).</li>
+<li>The client must have a contact record in GoHighLevel.</li>
+<li>The correct album must be open in ProSelect.</li>
+</ul>
+<h2>Steps</h2>
+<ol>
+<li>In ProSelect, open the album for the client you are working with.</li>
+<li>Click the <strong>Get Client</strong> button on the SideKick toolbar (person+ icon), or press <strong>Ctrl+Shift+G</strong>.</li>
+<li>SideKick PS searches GoHighLevel for the matching client.</li>
+<li>If a single match is found, a confirmation prompt shows the client's name — click <strong>Yes</strong> to load them.</li>
+<li>If multiple matches appear, select the correct contact from the list and click <strong>Confirm</strong>.</li>
+</ol>
+<h2>What you should see</h2>
+<p>The client's name and email address appear in the SideKick PS status area. The <strong>Sync Invoice</strong>, <strong>Open GHL Contact</strong>, and <strong>Payment Calculator</strong> buttons are now linked to this client.</p>
+<h2>Something went wrong?</h2>
+<ul>
+<li><strong>"No client found"</strong> — The album or shoot name may not match the contact's record in GHL closely enough. Open GHL in your browser, find the correct contact, then use <strong>Use Other</strong> in the Get Client dialog to select them manually.</li>
+<li><strong>Wrong client loaded</strong> — Click <strong>Get Client</strong> again to redo the lookup, or use <strong>Use Other</strong> to pick a different contact.</li>
+</ul>
+<h2>Related</h2>
+<ul>
+<li>How to sync a ProSelect invoice to GoHighLevel</li>
+<li>How to open a client's GoHighLevel contact record</li>
+</ul>
+<hr />
+<hr />
+<p>title: "How to sync a ProSelect invoice to GoHighLevel"
+category: sync
+source_files: SideKick_PS.ahk
+last_sync: 2026-05-30</p>
+<hr />
+<h2>What this does</h2>
+<p>Exports the current client's ProSelect order to GoHighLevel as an invoice, creating or updating the matching invoice and opportunity record automatically.</p>
+<h2>Before you start</h2>
+<ul>
+<li>A client must be loaded in SideKick PS (see How to look up a client from GoHighLevel).</li>
+<li>The order must be finalised in ProSelect with the correct items and amounts.</li>
+</ul>
+<h2>Steps</h2>
+<ol>
+<li>In ProSelect, confirm the client's order is complete and the correct album is open.</li>
+<li>Click the <strong>Sync Invoice</strong> button (document icon, green) on the SideKick toolbar.</li>
+<li>SideKick PS exports the order data and uploads it to GoHighLevel.</li>
+<li>A progress indicator appears while the sync runs.</li>
+<li>When complete, a summary confirms the invoice total and shows a link to the GHL record.</li>
+<li>Click the link to open the invoice in GoHighLevel, or click <strong>Close</strong> to return to ProSelect.</li>
+</ol>
+<h2>What you should see</h2>
+<p>A new invoice appears in the client's GHL contact record matching the ProSelect order. An opportunity is also created or updated in the pipeline.</p>
+<h2>Something went wrong?</h2>
+<ul>
+<li><strong>Duplicate invoice warning</strong> — SideKick PS has detected a previous sync for the same order. Review the existing GHL invoice before proceeding to avoid creating a duplicate charge.</li>
+<li><strong>Sync failed — check connection</strong> — Verify your GHL API credentials in <strong>Settings → GHL</strong> and retry.</li>
+<li><strong>Line items are missing</strong> — Make sure the ProSelect order has been saved and all items confirmed before syncing.</li>
+</ul>
+<h2>Related</h2>
+<ul>
+<li>How to look up a client from GoHighLevel</li>
+<li>How to open a client's GoHighLevel contact record</li>
+<li>How to open the GHL Production opportunity</li>
+</ul>
+<hr />
+<hr />
+<p>title: "How to open a client's GoHighLevel contact record"
+category: sync
+source_files: SideKick_PS.ahk
+last_sync: 2026-05-30</p>
+<hr />
+<h2>What this does</h2>
+<p>Opens the current client's GoHighLevel contact page directly in your browser — useful for checking notes, sending messages, or reviewing history mid-session.</p>
+<h2>Before you start</h2>
+<ul>
+<li>A client must be loaded in SideKick PS (see How to look up a client from GoHighLevel).</li>
+</ul>
+<h2>Steps</h2>
+<ol>
+<li>Click the <strong>Open GHL Contact</strong> button (ID card icon, teal) on the SideKick toolbar.</li>
+<li>Your default browser opens directly to the client's contact record in GoHighLevel.</li>
+</ol>
+<h2>What you should see</h2>
+<p>The client's full GHL contact profile opens, showing their details, activity history, and linked invoices.</p>
+<h2>Something went wrong?</h2>
+<ul>
+<li><strong>Browser opens to the GHL dashboard instead of the contact</strong> — The client may not have been loaded yet. Run <strong>Get Client</strong> (Ctrl+Shift+G) first, then try again.</li>
+<li><strong>"Contact ID not set"</strong> — No client is currently loaded. Use <strong>Get Client</strong> to load the correct contact.</li>
+</ul>
+<h2>Related</h2>
+<ul>
+<li>How to look up a client from GoHighLevel</li>
+<li>How to sync a ProSelect invoice to GoHighLevel</li>
+</ul>
+<hr />
+<hr />
+<p>title: "How to open the GHL Production opportunity"
+category: sync
+source_files: SideKick_PS.ahk
+last_sync: 2026-05-30</p>
+<hr />
+<h2>What this does</h2>
+<p>Jumps directly to the production pipeline record for the current shoot in GoHighLevel — the opportunity that is created when an invoice is synced for production tracking.</p>
+<h2>Before you start</h2>
+<ul>
+<li>An invoice must have been synced to GHL for the current shoot (see How to sync a ProSelect invoice to GoHighLevel).</li>
+<li>The <strong>Production</strong> button (factory icon, navy) must be visible on the toolbar — it only appears once a production opportunity has been linked to the open album.</li>
+</ul>
+<h2>Steps</h2>
+<ol>
+<li>Click the <strong>Production</strong> button on the SideKick toolbar (factory/building icon, navy).</li>
+<li>Your browser opens directly to the production opportunity in GoHighLevel.</li>
+</ol>
+<h2>What you should see</h2>
+<p>The GHL opportunity record for this shoot opens in your browser, showing the pipeline stage, assigned tasks, and any linked invoices.</p>
+<h2>Something went wrong?</h2>
+<ul>
+<li><strong>Production button is not visible</strong> — The current album has not had an invoice synced to GHL yet, or the production link has not been saved. Use the <strong>Sync Invoice</strong> button first.</li>
+</ul>
+<h2>Related</h2>
+<ul>
+<li>How to sync a ProSelect invoice to GoHighLevel</li>
+<li>How to open a client's GoHighLevel contact record</li>
+</ul>
+<hr />
+<hr />
+<p>title: "How to build a payment plan with the Payment Calculator"
+category: payments
+source_files: SideKick_PS.ahk, Inc_Hotkeys.ahk
+last_sync: 2026-05-30</p>
+<hr />
+<h2>What this does</h2>
+<p>Calculates and schedules all payment lines for a client's order directly into ProSelect in one step — splitting the balance into a deposit and regular payments so you never have to enter them manually.</p>
+<h2>Before you start</h2>
+<ul>
+<li>ProSelect's <strong>Add Payment</strong> dialog must be open for the current order.</li>
+<li>SideKick PS must be running.</li>
+</ul>
+<h2>Steps</h2>
+<ol>
+<li>In ProSelect, open the <strong>Add Payment</strong> dialog. A <strong>📅 PayPlan</strong> button appears automatically in the dialog.</li>
+<li>Click <strong>📅 PayPlan</strong> — or press <strong>Ctrl+Shift+P</strong> from anywhere — to open the Payment Calculator.</li>
+<li>Confirm the <strong>Balance Due</strong> shown at the top is correct. If not, close the calculator, correct the order in ProSelect, then reopen it.</li>
+<li>In the <strong>Downpayment / Deposit</strong> section, enter the deposit amount and select the payment method. The date defaults to today — change it if needed.</li>
+<li>In the <strong>Scheduled Payments</strong> section, choose a <strong>Pay Type</strong> and
+   <strong>Recurring</strong> frequency (Monthly, Weekly, Bi-Weekly, or 4-Weekly), then
+   either set <strong>No. Payments</strong> manually or click <strong>6</strong>, <strong>12</strong>, <strong>18</strong>, or
+   <strong>24</strong> to fill the matching number of payments for that duration.</li>
+<li>Ask the client which day they prefer for payments, then select it under <strong>Start Date</strong> along with the start month.</li>
+<li>Click <strong>✓ Schedule Payments</strong> — SideKick PS enters all payment lines into ProSelect automatically.</li>
+</ol>
+<h2>What you should see</h2>
+<p>Each payment line appears in the ProSelect Add Payment list with the correct amount, date, and payment type — ready to save.</p>
+<h2>Something went wrong?</h2>
+<ul>
+<li><strong>Balance Due shows the wrong amount</strong> — Close the calculator, correct the order total in ProSelect, then reopen via <strong>📅 PayPlan</strong>.</li>
+<li><strong>"GoCardless DD" start date was adjusted automatically</strong> — Direct Debit mandates require a minimum setup period. SideKick PS has moved the start date to the earliest valid date to comply with GoCardless requirements.</li>
+</ul>
+<h2>Related</h2>
+<ul>
+<li>How to set the rounding adjustment</li>
+<li>How to set up a payment plan and Direct Debit mandate during a sales session</li>
+</ul>
+<hr />
+<hr />
+<p>title: "How to set the rounding adjustment"
+category: payments
+source_files: SideKick_PS.ahk
+last_sync: 2026-05-30</p>
+<hr />
+<h2>What this does</h2>
+<p>Controls where the rounding difference goes when a balance cannot be split into perfectly equal payments — either added to the deposit or to the first scheduled payment.</p>
+<h2>Before you start</h2>
+<ul>
+<li>The Payment Calculator must be open (see How to build a payment plan with the Payment Calculator).</li>
+</ul>
+<h2>Steps</h2>
+<ol>
+<li>Open the Payment Calculator (<strong>📅 PayPlan</strong> button in the Add Payment dialog, or <strong>Ctrl+Shift+P</strong>).</li>
+<li>In the <strong>Downpayment / Deposit</strong> section, find the <strong>Add rounding to:</strong> radio buttons.</li>
+<li>Select <strong>Downpayment</strong> to add the rounding difference to the deposit amount, or <strong>1st Payment</strong> to add it to the first scheduled payment.</li>
+</ol>
+<p><em>Example: a £208.33 balance split 3 ways gives £69.44 × 3 = £208.32, leaving a 1p rounding difference. This setting controls where that 1p goes.</em></p>
+<h2>What you should see</h2>
+<p>A rounding info line below the deposit amount updates to show the adjustment amount (e.g. "Rounding of £0.01 added to deposit"). Your preference is saved for future sessions.</p>
+<h2>Something went wrong?</h2>
+<ul>
+<li><strong>No rounding notice appears</strong> — The balance divides exactly, so no adjustment is needed and the notice will not show.</li>
+</ul>
+<h2>Related</h2>
+<ul>
+<li>How to build a payment plan with the Payment Calculator</li>
+</ul>
+<hr />
+<hr />
+<p>title: "How to set up a payment plan and Direct Debit mandate during a sales session"
+category: payments
+source_files: SideKick_PS.ahk, Inc_Hotkeys.ahk
+last_sync: 2026-05-30</p>
+<hr />
+<h2>What this does</h2>
+<p>Guides you through taking a payment plan deposit and setting up a GoCardless
+Direct Debit mandate — all while the client authorises it on their own phone.
+By the time you finish entering the payment schedule, the mandate is ready
+and SideKick connects everything automatically.</p>
+<h2>Before you start</h2>
+<ul>
+<li>SideKick PS must be running with the floating toolbar visible.</li>
+<li>GoCardless must be enabled and configured in <strong>Settings → GoCardless</strong>.</li>
+<li>Two QR codes must be set up in <strong>Settings → Display</strong>:</li>
+<li><strong>Slide 1</strong> — your studio Wi-Fi credentials</li>
+<li><strong>Slide 2</strong> — your GoCardless mandate invitation link</li>
+<li>The client's contact record must already be loaded in SideKick PS
+  (use <strong>Get Client</strong> first if not).</li>
+</ul>
+<h2>Steps</h2>
+<ol>
+<li>
+<p>Click the <strong>QR Code</strong> button on the SideKick toolbar — the display appears full-screen
+   on your presentation monitor showing Slide 1 (Wi-Fi). Use the <strong>↑ / ↓ arrow keys</strong> to
+   move between the three available slides. Use the <strong>← / → arrow keys</strong> to move the
+   display between monitors if you have more than one screen.</p>
+</li>
+<li>
+<p>Ask the client to scan the Wi-Fi QR code with their phone and join your studio network.
+   Confirm they are connected before continuing.</p>
+</li>
+<li>
+<p>Press <strong>↓</strong> to move to Slide 2 (GoCardless mandate invitation). The client scans it and
+   begins filling in their bank details on their phone.</p>
+</li>
+<li>
+<p>While the client completes the mandate form on their phone, open <strong>Add Payment</strong> in
+   ProSelect and click <strong>📅 PayPlan</strong> (or press <strong>Ctrl+Shift+P</strong>) to open the Payment
+   Calculator.</p>
+</li>
+<li>
+<p>Confirm the <strong>Balance Due</strong> is correct. Enter a downpayment amount and payment method
+   if applicable.</p>
+</li>
+<li>
+<p>Select <strong>GoCardless DD</strong> as the Pay Type, choose a <strong>Recurring</strong> frequency
+   (Monthly or 4-Weekly), then set <strong>No. Payments</strong> manually or click <strong>6</strong>, <strong>12</strong>,
+   <strong>18</strong>, or <strong>24</strong> to fill it automatically. Ask the client which day of the
+   month works best for them and select it under <strong>Start Date</strong>.</p>
+</li>
+<li>
+<p>Click <strong>✓ Schedule Payments</strong> — SideKick PS enters all payment lines into ProSelect
+   automatically.</p>
+</li>
+<li>
+<p>Complete the order in ProSelect and come out of the Review Order section. SideKick PS
+   displays a prompt: <em>"The pay plan has been documented. Now press the GoCardless button
+   on the toolbar to set it up."</em></p>
+</li>
+<li>
+<p>Press <strong>Escape</strong> or click the <strong>QR Code</strong> button again to dismiss the display, then click
+   the <strong>GoCardless</strong> button on the toolbar. SideKick PS automatically locates the client's
+   mandate using their name and email address and links the payment schedule to it — no
+   manual lookup required.</p>
+</li>
+</ol>
+<h2>What you should see</h2>
+<p>All payment lines appear in ProSelect's payment list with the correct amounts and dates.
+The GoCardless dashboard shows the mandate as active with the schedule attached.</p>
+<h2>Something went wrong?</h2>
+<ul>
+<li><strong>Mandate not found by email</strong> — SideKick PS will automatically retry using the client's
+  name. If it still cannot match, a <strong>Use Other</strong> option appears — use this if a family
+  member or different person is paying under a different name or email address.</li>
+<li><strong>Client cannot scan the QR code</strong> — Increase the display size in <strong>Settings → Display</strong>
+  or use the arrow keys to move the display to the correct monitor.</li>
+<li><strong>GoCardless button is missing from the toolbar</strong> — GoCardless must be enabled in
+  <strong>Settings → GoCardless</strong> before the button appears.</li>
+</ul>
+<h2>Related</h2>
+<ul>
+<li>How to display a QR code on screen</li>
+<li>How to build a payment plan with the Payment Calculator</li>
+<li>How to set up GoCardless in SideKick PS <em>(coming soon)</em></li>
+</ul>
+<hr />
+<hr />
+<p>title: "How to review an order in ProSelect"
+category: payments
+source_files: SideKick_PS.ahk
+last_sync: 2026-05-30</p>
+<hr />
+<h2>What this does</h2>
+<p>Opens the Review Order screen in ProSelect for the current album in one click — without navigating through ProSelect's menus.</p>
+<h2>Before you start</h2>
+<ul>
+<li>ProSelect must be open with an album loaded.</li>
+</ul>
+<h2>Steps</h2>
+<ol>
+<li>Click the <strong>Review Order</strong> button (receipt icon) on the SideKick toolbar.</li>
+<li>ProSelect navigates to the <strong>Orders → Review Order</strong> screen for the current album.</li>
+</ol>
+<h2>What you should see</h2>
+<p>The Review Order screen opens showing the client's current order with all items, quantities, and prices.</p>
+<h2>Something went wrong?</h2>
+<ul>
+<li><strong>Nothing happens</strong> — Ensure ProSelect is open and an album is active. SideKick PS must be able to detect the ProSelect window to send the navigation command.</li>
+</ul>
+<h2>Related</h2>
+<ul>
+<li>How to sync a ProSelect invoice to GoHighLevel</li>
+<li>How to quick print from the toolbar</li>
+</ul>
+<hr />
+<hr />
+<p>title: "How to refresh or reload the open album"
+category: setup
+source_files: SideKick_PS.ahk
+last_sync: 2026-05-30</p>
+<hr />
+<h2>What this does</h2>
+<p>Forces ProSelect to re-read the current album's image files — useful after adding, moving, or renaming images outside of ProSelect.</p>
+<h2>Before you start</h2>
+<ul>
+<li>ProSelect must be open with an album loaded.</li>
+</ul>
+<h2>Steps</h2>
+<ol>
+<li>Click the <strong>Refresh</strong> button (circular arrow icon, navy) on the SideKick toolbar.</li>
+<li>ProSelect reloads the current album's contents from disk.</li>
+</ol>
+<h2>What you should see</h2>
+<p>The album view updates to reflect any newly added or changed images.</p>
+<h2>Something went wrong?</h2>
+<ul>
+<li><strong>Images still missing after refresh</strong> — Confirm the image files are in the correct folder for the open album. If you have moved files to a different location, update the album path inside ProSelect directly.</li>
+</ul>
+<h2>Related</h2>
+<ul>
+<li>How to toggle image sort mode</li>
+<li>How to open the shoot folder</li>
+</ul>
+<hr />
+<hr />
+<p>title: "How to toggle image sort mode"
+category: setup
+source_files: SideKick_PS.ahk
+last_sync: 2026-05-30</p>
+<hr />
+<h2>What this does</h2>
+<p>Switches the current album between alphabetical (filename) order and randomised display order — useful for controlling the presentation sequence during a sales session.</p>
+<h2>Before you start</h2>
+<ul>
+<li>ProSelect must be open with an album loaded.</li>
+</ul>
+<h2>Steps</h2>
+<ol>
+<li>The <strong>Sort</strong> button on the SideKick toolbar shows <strong>🔤</strong> when the album is currently in random order (the default when an album first loads).</li>
+<li>Click <strong>🔤</strong> to sort images alphabetically by filename.</li>
+<li>Click the button again to return to random order.</li>
+</ol>
+<h2>What you should see</h2>
+<p>The album images reorder immediately in ProSelect. The toolbar button icon changes to reflect the current mode.</p>
+<h2>Something went wrong?</h2>
+<ul>
+<li><strong>Sort does not appear to change</strong> — The album may have only one image, or ProSelect may need a manual refresh. Click the <strong>Refresh</strong> button after toggling sort.</li>
+</ul>
+<h2>Related</h2>
+<ul>
+<li>How to refresh or reload the open album</li>
+</ul>
+<hr />
+<hr />
+<p>title: "How to open the shoot folder"
+category: setup
+source_files: SideKick_PS.ahk
+last_sync: 2026-05-30</p>
+<hr />
+<h2>What this does</h2>
+<p>Opens the current shoot's archive folder in your preferred file browser — Windows Explorer, Adobe Bridge, or Lightroom — so you can access the raw image files directly without navigating there manually.</p>
+<h2>Before you start</h2>
+<ul>
+<li>The shoot archive path must be configured in <strong>Settings → File Management → Archive Path</strong>.</li>
+<li>To change which application opens the folder, go to <strong>Settings → File Management → File Browser</strong>.</li>
+</ul>
+<h2>Steps</h2>
+<ol>
+<li>Click the <strong>Open Folder</strong> button on the SideKick toolbar. The icon matches your configured file browser (Explorer, Bridge, or Lightroom).</li>
+<li>The shoot folder opens in your chosen application.</li>
+</ol>
+<h2>What you should see</h2>
+<p>Your configured file browser opens showing the contents of the current shoot's archive folder.</p>
+<h2>Something went wrong?</h2>
+<ul>
+<li><strong>"Folder not found"</strong> — The shoot archive path may not be set, or the folder does not exist yet. Check <strong>Settings → File Management → Archive Path</strong>.</li>
+<li><strong>Wrong folder opens</strong> — Confirm the archive path in <strong>Settings → File Management</strong> points to the correct root folder for your shoot archives.</li>
+</ul>
+<h2>Related</h2>
+<ul>
+<li>How to download images from an SD card</li>
+<li>How to refresh or reload the open album</li>
+</ul>
+<hr />
+<hr />
+<p>title: "How to quick print from the toolbar"
+category: setup
+source_files: SideKick_PS.ahk
+last_sync: 2026-05-30</p>
+<hr />
+<h2>What this does</h2>
+<p>Sends the current ProSelect page to your selected printer in one click — without opening the ProSelect print dialog.</p>
+<h2>Before you start</h2>
+<ul>
+<li>ProSelect must be open and displaying the page you want to print.</li>
+<li>Your preferred printer must be set in <strong>Settings → Toolbar → Quick Print Printer</strong> (leave blank to use the Windows default printer).</li>
+</ul>
+<h2>Steps</h2>
+<ol>
+<li>In ProSelect, navigate to the page or layout you want to print.</li>
+<li>Click the <strong>Print</strong> button (printer icon, dark grey) on the SideKick toolbar.</li>
+<li>ProSelect sends the current page to the selected printer immediately — no dialog appears.</li>
+</ol>
+<h2>What you should see</h2>
+<p>The page prints without any dialog box appearing. The printer receives the job within a few seconds.</p>
+<h2>Something went wrong?</h2>
+<ul>
+<li><strong>Wrong printer used</strong> — Set your preferred printer in <strong>Settings → Toolbar → Quick Print Printer</strong>.</li>
+<li><strong>Nothing prints</strong> — Confirm that ProSelect has a layout open and that the printer is online and connected.</li>
+</ul>
+<h2>Related</h2>
+<ul>
+<li>How to print a ProSelect page to PDF</li>
+<li>How to review an order in ProSelect</li>
+</ul>
+<hr />
+<hr />
+<p>title: "How to print a ProSelect page to PDF"
+category: setup
+source_files: SideKick_PS.ahk
+last_sync: 2026-05-30</p>
+<hr />
+<h2>What this does</h2>
+<p>Saves the current ProSelect page as a PDF file automatically, using a pre-calibrated button location — no print dialog interaction required.</p>
+<h2>Before you start</h2>
+<ul>
+<li><strong>Print to PDF</strong> must be enabled in <strong>Settings → Toolbar → Enable Print to PDF</strong>.</li>
+<li>The PDF print button location must be calibrated once (see Step 1 below).</li>
+<li>Optionally, set a <strong>PDF Output Folder</strong> in <strong>Settings → Toolbar</strong> to send a copy of every PDF to a specific folder automatically.</li>
+</ul>
+<h2>Steps</h2>
+<ol>
+<li><strong>First-time setup only:</strong> Open <strong>Settings → Toolbar</strong>, enable <strong>Print to PDF</strong>, then click <strong>Calibrate Print Button</strong> and follow the on-screen prompt to click the print button inside ProSelect's print dialog. Calibration only needs to be done once per machine.</li>
+<li>In ProSelect, navigate to the page or layout you want to save.</li>
+<li>Click the <strong>PDF</strong> button (document icon, maroon) on the SideKick toolbar.</li>
+<li>SideKick PS triggers ProSelect's print function and automatically clicks through to save the file.</li>
+</ol>
+<h2>What you should see</h2>
+<p>A PDF is saved to your configured output folder. If no folder is set, the PDF saves to ProSelect's default output location.</p>
+<h2>Something went wrong?</h2>
+<ul>
+<li><strong>Print dialog appears but nothing is clicked automatically</strong> — Calibration may be out of date if you have resized or moved the ProSelect window significantly. Recalibrate via <strong>Settings → Toolbar → Calibrate Print Button</strong>.</li>
+<li><strong>PDF saves to the wrong location</strong> — Set the correct path in <strong>Settings → Toolbar → PDF Output Folder</strong>.</li>
+</ul>
+<h2>Related</h2>
+<ul>
+<li>How to email a PDF to a client via GoHighLevel</li>
+<li>How to quick print from the toolbar</li>
+</ul>
+<hr />
+<hr />
+<p>title: "How to email a PDF to a client via GoHighLevel"
+category: sync
+source_files: SideKick_PS.ahk
+last_sync: 2026-05-30</p>
+<hr />
+<h2>What this does</h2>
+<p>Prints the current ProSelect page to PDF and sends it to the loaded client via a GoHighLevel email template — all in one action from the toolbar.</p>
+<h2>Before you start</h2>
+<ul>
+<li>Print to PDF must be enabled and calibrated (see How to print a ProSelect page to PDF).</li>
+<li>The <strong>Email PDF</strong> button must be enabled in <strong>Settings → Toolbar → Show Email PDF Button</strong>.</li>
+<li>A GHL email template for PDF delivery must be selected in <strong>Settings → GHL → PDF Email Template</strong>.</li>
+<li>A client must be loaded in SideKick PS (see How to look up a client from GoHighLevel).</li>
+</ul>
+<h2>Steps</h2>
+<ol>
+<li>In ProSelect, navigate to the page you want to email.</li>
+<li>Click the <strong>Email PDF</strong> button (envelope icon) on the SideKick toolbar.</li>
+<li>SideKick PS prints the page to PDF, then sends it to the loaded client's email address using the configured GHL template.</li>
+<li>A confirmation message appears when the email has been sent successfully.</li>
+</ol>
+<h2>What you should see</h2>
+<p>The client receives an email via GoHighLevel containing the PDF as an attachment or link. A record of the sent email appears in the client's GHL activity feed.</p>
+<h2>Something went wrong?</h2>
+<ul>
+<li><strong>Email PDF button is not on the toolbar</strong> — Enable it in <strong>Settings → Toolbar → Show Email PDF Button</strong>.</li>
+<li><strong>"No client loaded"</strong> — Use <strong>Get Client</strong> (Ctrl+Shift+G) to load the client first, then try again.</li>
+<li><strong>Wrong email template used</strong> — Update the selected template in <strong>Settings → GHL → PDF Email Template</strong>.</li>
+</ul>
+<h2>Related</h2>
+<ul>
+<li>How to print a ProSelect page to PDF</li>
+<li>How to look up a client from GoHighLevel</li>
+</ul>
+<hr />
+<hr />
+<p>title: "How to display a QR code or bank transfer details on screen"
+category: payments
+source_files: SideKick_PS.ahk
+last_sync: 2026-05-30</p>
+<hr />
+<h2>What this does</h2>
+<p>Shows a full-screen display on your presentation monitor — a QR code for Wi-Fi, a payment mandate link, bank transfer details, or any content you configure — so clients can scan or read it on their own device without you showing them your screen.</p>
+<h2>Before you start</h2>
+<ul>
+<li>Display content must be configured in <strong>Settings → Display</strong>:</li>
+<li><strong>Slides 1, 2, 3</strong> — enter a URL or text to generate a QR code for each slide, or leave a slide blank.</li>
+<li>Bank transfer details (bank, account name, sort code, account number) can also be configured here as a text slide, plus an optional <strong>Reference</strong> line for the client to quote when they pay.</li>
+<li>Your presentation monitor must be connected and detected by Windows.</li>
+</ul>
+<h2>Steps</h2>
+<ol>
+<li>Click the <strong>QR Code</strong> button (grid icon, teal) on the SideKick toolbar to open the full-screen display on your presentation monitor.</li>
+<li>Use the <strong>↑ / ↓ arrow keys</strong> to cycle between Slide 1, Slide 2, and Slide 3.</li>
+<li>Use the <strong>← / → arrow keys</strong> to move the display to a different monitor if needed.</li>
+<li>When finished, press <strong>Escape</strong> or click the <strong>QR Code</strong> button again to close the display.</li>
+</ol>
+<h2>What you should see</h2>
+<p>A full-screen display appears on your chosen monitor showing the QR code or content for the selected slide.</p>
+<h2>Something went wrong?</h2>
+<ul>
+<li><strong>QR code is hard to scan</strong> — Increase the display size in <strong>Settings → Display → Display Size</strong>.</li>
+<li><strong>Display appears on the wrong monitor</strong> — Use the <strong>← / →</strong> arrow keys while the display is open to move it to the correct screen. You can also set a default monitor in <strong>Settings → Display → Monitor</strong>.</li>
+<li><strong>Slide appears blank</strong> — No content has been configured for that slide. Add a URL or text in <strong>Settings → Display</strong>.</li>
+</ul>
+<h2>Related</h2>
+<ul>
+<li>How to set up a payment plan and Direct Debit mandate during a sales session</li>
+</ul>
+<hr />
+<hr />
+<p>title: "How to send a Cardly postcard to a client"
+category: sync
+source_files: SideKick_PS.ahk
+last_sync: 2026-05-30</p>
+<hr />
+<h2>What this does</h2>
+<p>Sends a personalised printed postcard to the client via the Cardly service — directly from the SideKick toolbar, using the loaded client's name and address.</p>
+<h2>Before you start</h2>
+<ul>
+<li>A Cardly API key must be entered in <strong>Settings → Cardly</strong>.</li>
+<li>A card design must be selected in <strong>Settings → Cardly → Card Design</strong>.</li>
+<li>A client must be loaded in SideKick PS (see How to look up a client from GoHighLevel).</li>
+<li>The client's postal address must be present in their GoHighLevel contact record.</li>
+</ul>
+<h2>Steps</h2>
+<ol>
+<li>Click the <strong>Cardly</strong> button on the SideKick toolbar.</li>
+<li>A preview of the postcard appears showing the design and the client's name and address.</li>
+<li>Review the preview — if the details are correct, click <strong>Send</strong>.</li>
+<li>Cardly confirms the order and submits the postcard for printing and postal delivery.</li>
+</ol>
+<h2>What you should see</h2>
+<p>A confirmation appears showing the postcard has been submitted to Cardly. Delivery typically takes several working days.</p>
+<h2>Something went wrong?</h2>
+<ul>
+<li><strong>Cardly button is missing from the toolbar</strong> — Check that a Cardly API key is entered in <strong>Settings → Cardly</strong> and the button is enabled.</li>
+<li><strong>Client address is missing from the preview</strong> — The loaded client does not have a postal address in their GHL contact record. Add the address in GHL and reload the client using <strong>Get Client</strong>, then try again.</li>
+</ul>
+<h2>Related</h2>
+<ul>
+<li>How to look up a client from GoHighLevel</li>
+</ul>
+<hr />
+<hr />
+<p>title: "How to download images from an SD card"
+category: setup
+source_files: SideKick_PS.ahk, Inc_SDCard.ahk
+last_sync: 2026-05-30</p>
+<hr />
+<h2>What this does</h2>
+<p>Copies image files from a camera SD card to your studio's shoot archive folder, assigns a shoot number, and optionally opens the folder in your file browser when finished.</p>
+<h2>Before you start</h2>
+<ul>
+<li>Configure the following paths in <strong>Settings → File Management</strong> before your first download:</li>
+<li><strong>SD Card Path</strong> — the drive letter and DCIM folder for your camera's SD card (e.g. <code>F:\DCIM</code>)</li>
+<li><strong>Download Path</strong> — a temporary working folder for copied files</li>
+<li><strong>Archive Path</strong> — the final destination for finished shoots</li>
+<li>Insert the SD card into your computer's card reader.</li>
+</ul>
+<h2>Steps</h2>
+<ol>
+<li>Click the <strong>Download</strong> button (arrow-down icon, orange) on the SideKick toolbar.</li>
+<li>A dialog appears confirming the SD card path detected. Click <strong>Continue</strong>.</li>
+<li>Enter or confirm the shoot number for this session. SideKick PS suggests the next available number automatically.</li>
+<li>SideKick PS copies all image folders from the card to your archive.</li>
+<li>When the copy is complete, your configured file browser opens automatically (if enabled in Settings).</li>
+</ol>
+<h2>What you should see</h2>
+<p>All images from the SD card appear in a new numbered folder in your shoot archive. The file browser opens to that folder.</p>
+<h2>Something went wrong?</h2>
+<ul>
+<li><strong>"SD card not found"</strong> — Check the card is inserted and that the drive letter in <strong>Settings → File Management → SD Card Path</strong> matches the card's current drive letter in Windows Explorer.</li>
+<li><strong>Download stops part-way through</strong> — Check there is sufficient free space on your archive drive. SideKick PS will report the error if space runs out.</li>
+<li><strong>Shoot number already exists</strong> — SideKick PS will warn you before overwriting. Change the shoot number in the confirmation dialog.</li>
+</ul>
+<h2>Related</h2>
+<ul>
+<li>How to open the shoot folder</li>
+</ul>
+<hr />
+<hr />
+<p>title: "How to capture a room photo"
+category: setup
+source_files: SideKick_PS.ahk
+last_sync: 2026-05-30</p>
+<hr />
+<h2>What this does</h2>
+<p>Takes a photo of the room or wall arrangement using a connected camera or webcam and saves it linked to the current shoot — useful as a reference when presenting room views to clients in ProSelect.</p>
+<h2>Before you start</h2>
+<ul>
+<li>A camera or webcam must be connected and recognised by Windows.</li>
+<li>Optionally, set a save folder in <strong>Settings → File Management → Room Capture Folder</strong> (default: Documents\ProSelect Room Captures).</li>
+</ul>
+<h2>Steps</h2>
+<ol>
+<li>Arrange the room or wall display you want to photograph.</li>
+<li>Click the <strong>Camera</strong> button (maroon) on the SideKick toolbar.</li>
+<li>SideKick PS triggers the camera and saves the photo to the room capture folder.</li>
+<li>The button briefly changes colour to confirm the capture was successful, then returns to its normal state.</li>
+</ol>
+<h2>What you should see</h2>
+<p>A photo file is saved in your room capture folder, named with the current date and time.</p>
+<h2>Something went wrong?</h2>
+<ul>
+<li><strong>Camera button shows in yellow</strong> — The camera is in calibration mode. Click it once to complete calibration, then click again to capture.</li>
+<li><strong>No photo saved</strong> — Confirm the camera is connected and not in use by another application. Check the save folder path in <strong>Settings → File Management → Room Capture Folder</strong>.</li>
+</ul>
+<h2>Related</h2>
+<ul>
+<li>How to open the shoot folder</li>
+</ul>
+<hr />
+<hr />
+<p>title: "How to change keyboard shortcuts"
+category: settings
+source_files: SideKick_PS.ahk, Inc_Hotkeys.ahk
+last_sync: 2026-05-30</p>
+<hr />
+<h2>What this does</h2>
+<p>Reassigns the three global hotkeys used to trigger SideKick PS features from anywhere on your computer — without switching to the toolbar first.</p>
+<h2>Before you start</h2>
+<ul>
+<li>SideKick PS must be running.</li>
+</ul>
+<h2>Steps</h2>
+<ol>
+<li>Open <strong>Settings</strong> (gear icon on the toolbar, or press <strong>Ctrl+Shift+I</strong>) and go to the <strong>General</strong> tab.</li>
+<li>Find the <strong>Keyboard Shortcuts</strong> section. The three defaults are:</li>
+<li><strong>GHL Client Lookup</strong> — default: <strong>Ctrl+Shift+G</strong></li>
+<li><strong>Payment Calculator</strong> — default: <strong>Ctrl+Shift+P</strong></li>
+<li><strong>Settings</strong> — default: <strong>Ctrl+Shift+I</strong></li>
+<li>Click the field next to the shortcut you want to change and press your new key combination.</li>
+<li>Click <strong>Save</strong> to apply the change.</li>
+</ol>
+<h2>What you should see</h2>
+<p>The new shortcuts take effect immediately. Pressing them from any active window triggers the corresponding SideKick PS action.</p>
+<h2>Something went wrong?</h2>
+<ul>
+<li><strong>New shortcut does not work</strong> — Another application may already be using that combination. Choose a different combination, or check for conflicts in Windows settings.</li>
+<li><strong>Shortcut reverts after restart</strong> — Make sure you clicked <strong>Save</strong> before closing Settings.</li>
+</ul>
+<h2>Related</h2>
+<ul>
+<li>How to install and activate SideKick PS</li>
+<li>How to customise and reposition the toolbar</li>
+</ul>
+<hr />
+<hr />
+<p>title: "How to check for updates and view What's New"
+category: settings
+source_files: SideKick_PS.ahk, Inc_WhatsNew.ahk
+last_sync: 2026-05-30</p>
+<hr />
+<h2>What this does</h2>
+<p>Keeps SideKick PS up to date and lets you review the latest changes and improvements added to the software.</p>
+<h2>Before you start</h2>
+<ul>
+<li>SideKick PS must be running with an internet connection available.</li>
+</ul>
+<h2>Steps</h2>
+<ol>
+<li>SideKick PS checks for updates automatically every time it starts. If a new version is available, a notification appears asking if you want to update now or later.</li>
+<li>To check manually: open <strong>Settings</strong> (gear icon or <strong>Ctrl+Shift+I</strong>) and go to the <strong>About</strong> tab.</li>
+<li>Click <strong>Check for Updates</strong>.</li>
+<li>To view the version history and release notes, click <strong>What's New</strong> on the About tab.</li>
+<li>If an update is available and you click <strong>Update Now</strong>, SideKick PS downloads and installs the update, then restarts automatically.</li>
+</ol>
+<h2>What you should see</h2>
+<p>The About tab shows the current version number and build date. After updating, the new version number is confirmed when SideKick PS restarts.</p>
+<h2>Something went wrong?</h2>
+<ul>
+<li><strong>"No updates available" but you expected one</strong> — Confirm your internet connection is active and try again. If the issue persists, download the latest installer manually using the link in your original purchase confirmation email.</li>
+<li><strong>Update failed to install</strong> — Try running SideKick PS as administrator (right-click the .exe → <strong>Run as administrator</strong>) and attempt the update again.</li>
+</ul>
+<h2>Related</h2>
+<ul>
+<li>How to install and activate SideKick PS</li>
+</ul>
+</main>
+<script>
+(function () {
+  var btn = document.getElementById('copy-ai-btn');
+  function copyText() {
+    var text = btn.getAttribute('data-instruction') || '';
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(
+        function () { flash('Copied to clipboard'); },
+        function () { fallback(text); }
+      );
+    } else {
+      fallback(text);
+    }
+  }
+  function fallback(text) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try {
+      document.execCommand('copy');
+      flash('Copied to clipboard');
+    } catch (e) {
+      flash('Copy failed — select the page text manually');
+    }
+    document.body.removeChild(ta);
+  }
+  function flash(msg) {
+    var old = btn.textContent;
+    btn.textContent = msg;
+    setTimeout(function () { btn.textContent = old; }, 1600);
+  }
+  btn.addEventListener('click', copyText);
+})();
+</script>
 </body>
 </html>
