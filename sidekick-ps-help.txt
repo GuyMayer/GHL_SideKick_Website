@@ -2,7 +2,7 @@
 
 > Paste this entire file into ChatGPT, Claude, or any AI chat, then ask your question. The AI will answer based on the full SideKick PS documentation below.
 
-_Last updated: 2026-05-30_
+_Last updated: 2026-09-29_
 
 ---
 
@@ -314,6 +314,8 @@ Open Settings with the **⚙** gear icon or **Ctrl+Shift+I**.
 | **🔊 Sounds** | Interface sounds, pace button sounds | When you want quieter operation |
 | **🔑 License** | Licence key, activation status | When purchasing or renewing |
 | **ℹ About** | Version, build date, updates, What's New, diagnostics, AI Help link | When checking for updates |
+
+At the bottom of the Settings window: **Apply** saves, **Close** exits, and **📖 Manual** opens this guide.
 
 A few worth changing early: toolbar icon colour, QR code slides, and your shoot archive path.
 
