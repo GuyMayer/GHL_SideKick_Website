@@ -425,6 +425,7 @@
 <ul>
 <li><strong>Mandate not found</strong> — Tries email, then name. If both fail, send a setup request.</li>
 <li><strong>GoCardless button missing</strong> — Enable in <strong>Settings → GoCardless</strong>.</li>
+<li><strong>First payment date too early</strong> — SideKick shows the earliest date GoCardless can charge and offers a <strong>Fix</strong> button that moves only the first payment to that date and re-runs once.</li>
 </ul>
 <h3>Amending or deferring a plan</h3>
 <p>GoCardless can't move the dates on an existing schedule, so any change means cancel and recreate. Open the album's GoCardless dialog and click <strong>Amend / Defer</strong> (enable it first in <strong>Settings → GoCardless → Amend / Defer</strong>). SideKick checks the album's Direct Debit lines against GoCardless, then you choose:</p>
@@ -1376,6 +1377,97 @@ last_sync: 2026-05-30</p>
 <h2>Related</h2>
 <ul>
 <li>How to install and activate SideKick PS</li>
+</ul>
+<hr />
+<hr />
+<p>title: "How to set up the Stripe payment QR"
+category: settings
+source_files: stripe_client.py, stripe_paytype.py
+last_sync: 2026-10-22</p>
+<hr />
+<h2>What this does</h2>
+<p>Adds one extra slide to the fullscreen Display slideshow: a QR code your
+client scans to pay by card on their phone, through your own Stripe account.
+The slide shows the amount of the first payment line on the album whose pay
+type contains <strong>Stripe</strong>. No Stripe payment line on the album means no slide.</p>
+<p>Your money goes straight to Stripe, not through SideKick. SideKick only
+creates a payment link and draws the QR code.</p>
+<h2>Before you start</h2>
+<ul>
+<li>A Stripe account, signed in at <strong>dashboard.stripe.com</strong>.</li>
+<li>ProSelect installed on the same computer, with a pay type named <strong>Stripe</strong>
+  in its Payment Methods. SideKick checks for this and tells you how to add it
+  if it is missing — it never changes ProSelect for you.</li>
+<li>The album you are showing must have at least one payment line using that
+  Stripe pay type.</li>
+</ul>
+<h2>Steps</h2>
+<h3>1. Get your Stripe secret key</h3>
+<ol>
+<li>Sign in to <strong>dashboard.stripe.com</strong>.</li>
+<li>While testing, turn <strong>Test mode</strong> on (toggle at the top right). Set up with
+   a test key first, then repeat with the live key when you are happy.</li>
+<li>Go to <strong>Developers → API keys</strong>.</li>
+<li>Preferred: click <strong>Create restricted key</strong>, name it <code>SideKick PS</code>, and give
+   it two permissions:</li>
+<li><strong>Payment Links</strong> — Write</li>
+<li><strong>Balance</strong> — Read (used by the Test Connection button)</li>
+</ol>
+<p>Then click <strong>Create</strong> and copy the key. It starts <code>rk_test_</code> or <code>rk_live_</code>.
+   Simpler alternative: reveal the account's <strong>Secret key</strong> and copy it. It
+   starts <code>sk_test_</code> or <code>sk_live_</code>.
+5. Treat the key like a password. Do not email it, paste it into chat, or put
+   it in a shared document.</p>
+<h3>2. Paste it into SideKick PS</h3>
+<ol>
+<li>Open <strong>Settings</strong> (gear icon or <strong>Ctrl+Shift+I</strong>) and go to the
+   <strong>Display</strong> tab.</li>
+<li>In the <strong>Stripe Payment</strong> group, paste the key into
+   <strong>Stripe secret key</strong>.</li>
+<li>Click <strong>Test Connection</strong>. SideKick checks the key with Stripe and reports
+   whether it is a <strong>live</strong> or <strong>test</strong> key.</li>
+<li>Set the <strong>Currency</strong> (GBP by default) and click <strong>Save</strong>.</li>
+<li>Tick <strong>Display Stripe payment QR</strong>.</li>
+</ol>
+<p>If ProSelect has no Stripe pay type yet, the box stays ticked and SideKick
+shows an advisory message. The QR slide still works, because the amount comes
+from the album's Stripe payment line. Stripe payments on new orders still need
+the pay type in ProSelect first.</p>
+<h2>What you should see</h2>
+<ul>
+<li><strong>Test Connection</strong> reports the key is valid and which mode it is in.</li>
+<li>The key shows as asterisks once saved; leave the field as-is to keep it.</li>
+<li>With the box ticked and a Stripe payment line on the album, the Display
+  slideshow gains a slide showing the amount and a QR code.</li>
+<li>Scanning with a phone opens the Stripe-hosted payment page showing the
+  business name and that amount. Pay it once and the link stops working — a
+  second scan shows Stripe's expired-link page.</li>
+</ul>
+<h2>Something went wrong?</h2>
+<ul>
+<li><strong>"Stripe pay type not found in ProSelect"</strong> — This message is advisory,
+  not blocking. The box stays ticked and the QR slide still works, because the
+  amount comes from the album's payment lines. To record Stripe payments on
+  new orders, add the pay type in ProSelect Payments Setup, save, and reopen
+  the album.</li>
+<li><strong>"Stripe key not set"</strong> — Paste the key on the Display tab and click Test
+  Connection first.</li>
+<li><strong>Test Connection says the key is invalid</strong> — Check you copied the whole
+  key, that it is not a publishable key (<code>pk_…</code> — those cannot create payment
+  links), and that Stripe has not been told to roll the key.</li>
+<li><strong>Test Connection reports a permission error</strong> — A restricted key is
+  missing a scope. It needs <strong>Payment Links: Write</strong> and <strong>Balance: Read</strong>.</li>
+<li><strong>No Stripe slide appears</strong> — The album has no payment line whose pay type
+  contains "Stripe", the key is not saved, or the amount is below Stripe's 30p
+  GBP minimum. The slide is skipped and a message says why.</li>
+<li><strong>A client paid and the QR now shows an error</strong> — Payment links are
+  single-use by design. Tick the box off and on, or reopen the slideshow, to
+  mint a fresh one.</li>
+</ul>
+<h2>Related</h2>
+<ul>
+<li>How to display QR codes on the client screen</li>
+<li>How to take card payments with your terminal</li>
 </ul>
 </main>
 <script>
